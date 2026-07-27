@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SQLite cheat sheet</title>
+    <meta
+      name="description"
+      content="SQLite shell commands — inspecting the schema."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E%F0%9F%97%84%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <p class="eyebrow">Cheat sheet</p>
+      <h1>SQLite</h1>
+      <p class="lede">Dot commands for the sqlite3 shell.</p>
+    </header>
+
+    <main>
+      <!-- Add a section: copy this whole <section> block and swap the heading
+           and rows. Add a command: copy one <tr>. -->
+      <section id="schema">
+        <h2>Schema</h2>
+        <table class="shortcuts">
+          <caption>
+            .schema variants
+          </caption>
+          <thead class="visually-hidden">
+            <tr>
+              <th scope="col">Action</th>
+              <th scope="col">Command</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="action">DDL for everything</td>
+              <td class="keys"><kbd>.schema</kbd></td>
+            </tr>
+            <tr>
+              <td class="action">DDL for one table</td>
+              <td class="keys"><kbd>.schema users</kbd></td>
+            </tr>
+            <tr>
+              <td class="action">
+                DDL by pattern
+                <span class="note">LIKE pattern, so % matches anything</span>
+              </td>
+              <td class="keys"><kbd>.schema user%</kbd></td>
+            </tr>
+            <tr>
+              <td class="action">Pretty-print the DDL</td>
+              <td class="keys"><kbd>.schema --indent</kbd></td>
+            </tr>
+            <tr>
+              <td class="action">
+                Hide internal tables
+                <span class="note">skips sqlite_* objects</span>
+              </td>
+              <td class="keys"><kbd>.schema --nosys</kbd></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="files">
+        <h2>Files</h2>
+        <table class="shortcuts">
+          <caption>
+            .read variants
+          </caption>
+          <thead class="visually-hidden">
+            <tr>
+              <th scope="col">Action</th>
+              <th scope="col">Command</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="action">
+                Run SQL from a file
+                <span class="note">path is relative to the shell's cwd</span>
+              </td>
+              <td class="keys"><kbd>.read seed.sql</kbd></td>
+            </tr>
+            <tr>
+              <td class="action">
+                Run a command's output as SQL
+                <span class="note">not available in --safe mode</span>
+              </td>
+              <td class="keys"><kbd>.read |gen-sql.sh</kbd></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Reference: the
+        <a href="https://sqlite.org/cli.html#querying_the_database_schema"
+          >sqlite3 CLI docs</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>
